@@ -1,0 +1,30 @@
+{
+  "name": "botmaker",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "ajv-keywords": "^3.1.0",
+    "bootstrap": "^4.1.0",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.1",
+    "moment-duration-format": "^2.2.2",
+    "react": "^16.3.2",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.3.2",
+    "react-scripts": "1.1.4",
+    "reactstrap": "^5.0.0-beta.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "boostrap1": "npm install bootstrap --save",
+    "bootsrap": "npm install --save reactstrap@next react react-dom",
+    "momentjs": "npm install --save  moment-duration-format",
+    "lodash": "npm install --save lodash",
+    "npm-start": "npm start",
+    "npm-install": "npm install"
+  }
+}
