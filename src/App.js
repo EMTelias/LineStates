@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Button, Table } from 'reactstrap';
 import moment from 'moment';
 import _ from 'lodash';
 import 'moment-duration-format';
@@ -8,12 +8,12 @@ import './App.css';
 
 class LineStatus extends Component{
     render(){
-        return  <h4>{this.props.status}</h4>
+        return  <p>{this.props.status}</p>
     }
 }
 class LineFrequency extends Component{
     render(){
-        return  <h4>{this.props.lineFrequency}</h4>
+        return  <p>{this.props.lineFrequency}</p>
     }
 }
 class Line extends Component{
@@ -38,7 +38,7 @@ class Line extends Component{
                     this.setState({
                         active: true,
                         lineStatus: filtro[0].LineStatus,
-                        lineFrequency: moment.duration(filtro[0].LineFrequency, "seconds").format(),
+                        lineFrequency: moment.duration(filtro[0].LineFrequency*1, "seconds").format(),
                     });
                     },
                     (error) => {
@@ -60,7 +60,7 @@ class Line extends Component{
     }
     renderName(name){
         return(
-            <button onClick={() => this.handleClick(name)}>{ name }</button>
+            <Button className={ name + " btn-linea" }  onClick={() => this.handleClick(name)}>{ name }</Button>
         );
     }
     renderStatus(status){
@@ -75,16 +75,11 @@ class Line extends Component{
     }
     render(){
         return (
-            <Container>
-                <Row>
-                    <Col sm="2">{this.renderName(this.props.name)}
-                    </Col>
-                    <Col sm="2">{this.renderFrequency(this.state.lineStatus)}
-                    </Col>
-                    <Col sm="2">{this.renderFrequency(this.state.lineFrequency)}
-                    </Col>
-                </Row>
-            </Container>
+            <tr>
+                    <th>{this.renderName(this.props.name)}</th>
+                    <th>{this.renderFrequency(this.state.lineStatus)}</th>
+                    <th>{this.renderFrequency(this.state.lineFrequency)}</th>
+            </tr>
         );
     }
 }
@@ -136,7 +131,19 @@ class App extends Component {
                     {this.state.time}
                     <br/>
                 </header>
-                {this.state.items}
+                <Table borderless>
+                    <thead>
+                    <tr>
+                        <th>Linea</th>
+                        <th>Servicio</th>
+                        <th>Frecuencia</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.items}
+                    </tbody>
+                </Table>
+
                 <p className="App-intro">
                 </p>
             </div>

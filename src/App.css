@@ -9,7 +9,7 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 175px;
   padding: 20px;
   color: white;
 }
@@ -25,4 +25,37 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+.btn-linea{
+ // margin: 8px;
+  width: 100%;
+  border: 0px;
+}
+.A{
+  background-color: #00BFFF;
+}
+.B{
+  background-color: #FF0000;
+}
+.C{
+  background-color: #0101DF;
+}
+.D{
+  background-color: #0B610B;
+}
+.E{
+  background-color: #6A0888;
+}
+.H{
+  background-color: #FFBF00;
+  color: black;
+}
+.P{
+  background-color: #FFBF00;
+}
+.U{
+  background-color: #FF8000;
+}
+.line-states{
+  margin-top: 10px;
 }
