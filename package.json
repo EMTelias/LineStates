@@ -20,11 +20,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "boostrap1": "npm install bootstrap --save",
-    "bootsrap": "npm install --save reactstrap@next react react-dom",
-    "momentjs": "npm install --save  moment-duration-format",
-    "lodash": "npm install --save lodash",
-    "npm-start": "npm start",
     "npm-install": "npm install"
   }
 }

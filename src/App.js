@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Button, Table } from 'reactstrap';
+import { Button, Table } from 'reactstrap';
 import moment from 'moment';
 import _ from 'lodash';
 import 'moment-duration-format';
-import logo from './logo.svg';
 import './App.css';
 
 class LineStatus extends Component{
     render(){
-        return  <p>{this.props.status}</p>
+        return  <p className={"line-text"}>{this.props.lineStatus}</p>
     }
 }
 class LineFrequency extends Component{
     render(){
-        return  <p>{this.props.lineFrequency}</p>
+        return  <p className={"line-text"}>{this.props.lineFrequency}</p>
     }
 }
 class Line extends Component{
@@ -27,7 +26,7 @@ class Line extends Component{
         };
     }
     handleClick(name) {
-        if( !this.state.active){
+        if( !this.state.active ){
             var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
                 targetUrl = 'http://www.metrovias.com.ar/Subterraneos/Estado?site=Metrovias'
             fetch(proxyUrl + targetUrl).then(res => res.json())
@@ -76,9 +75,9 @@ class Line extends Component{
     render(){
         return (
             <tr>
-                    <th>{this.renderName(this.props.name)}</th>
-                    <th>{this.renderFrequency(this.state.lineStatus)}</th>
-                    <th>{this.renderFrequency(this.state.lineFrequency)}</th>
+                <th>{this.renderName(this.props.name)}</th>
+                <th>{this.renderStatus(this.state.lineStatus)}</th>
+                <th>{this.renderFrequency(this.state.lineFrequency)}</th>
             </tr>
         );
     }
@@ -122,16 +121,14 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.state);
         return (
             <div className="App">
                 <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to React</h1>
+                    <h1 className="App-title">Metrovias</h1>
                     {this.state.time}
                     <br/>
                 </header>
-                <Table borderless>
+                <Table striped>
                     <thead>
                     <tr>
                         <th>Linea</th>
